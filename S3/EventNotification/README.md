@@ -67,12 +67,10 @@ aws sns add-permission \
 ```
 
 ## Add Permissions to the LAMBDA Permission Policy
-aws lambda add-permission \
-    --function-name CloudtrailMonitor \
-    --statement-id CloudtrailMonitor \
-    --action "lambda:InvokeFunction" \
-    --principal sns.amazonaws.com \
-    --source-arn Amazon SNS topic arn 
+$ aws iam put-role-policy \
+--role-name Test-Role \ 
+--policy-name ExamplePolicy \
+--policy-document file://config/policies/s3-lambda-notification-rolepolicy.json
     
  ```   
  {
