@@ -46,45 +46,10 @@ aws sns add-permission \
     --topic-arn Amazon SNS topic arn \
     --label lambda-access \
     --aws-account-id LAMBDA_OWNER_ACCOUNT_ID \
-    --action-name Subscribe ListSubscriptionsByTopic Receive
-```
-"Statement":{  
-   "Condition":{  
-      "ArnLike":{  
-         "AWS:SourceArn":"arn:aws:lambda:ap-southeast-2:LAMBDA_OWNER_ACCOUNT_ID:function:CloudtrailMonitor"
-      }
-   },
-   "Action":[  
-      "lambda:InvokeFunction"
-   ],
-   "Resource":"arn:aws:lambda:ap-southeast-2:SNS_OWNER_ACCOUNT_ID:function:CloudtrailMonitor",
-   "Effect":"Allow",
-   "Principal":{  
-      "Service":"sns.amazonaws.com"
-   },
-   "Sid":"sns-x-account1"
-}
-```
+    --action-name Publish Subscribe ListSubscriptionsByTopic Receive
 
 ## Add Permissions to the LAMBDA Permission Policy
 $ aws iam put-role-policy \
 --role-name Test-Role \ 
 --policy-name ExamplePolicy \
 --policy-document file://config/policies/s3-lambda-notification-rolepolicy.json
-    
- ```   
- {
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Effect": "Allow",
-            "Action": [
-                "sns:Publish"
-            ],
-            "Resource": [
-                "arn:aws:sns:ap-southeast-2:SNSTOPIC_OWNER_ACCOUNT_ID:*"
-            ]
-        }
-    ]
- }
-```
