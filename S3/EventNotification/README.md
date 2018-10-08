@@ -39,13 +39,29 @@ $ aws lambda add-permission \
    }
 }
 ```
-## Add Permissions to the SNS 
+
+## Add Permissions to the SNS Permission Policy
 aws sns add-permission \
-    --region us-east-1 \
+    --region ap-southeast-2 \
     --topic-arn Amazon SNS topic arn \
     --label lambda-access \
-    --aws-account-id B \
+    --aws-account-id LAMBDA_OWNER_ACCOUNT_ID \
     --action-name Subscribe ListSubscriptionsByTopic Receive
-
-"Statement": "{\"Condition\":{\"ArnLike\":{\"AWS:SourceArn\":\"arn:aws:lambda:us-east-1:B:function:SNS-X-Account\"}},\"Action\":[\"lambda:InvokeFunction\"],\"Resource\":\"arn:aws:lambda:us-east-1:A:function:SNS-X-Account\",\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"sns.amazonaws.com\"},\"Sid\":\"sns-x-account1\"}"
-
+```
+"Statement":{  
+   "Condition":{  
+      "ArnLike":{  
+         "AWS:SourceArn":"arn:aws:lambda:us-east-1:B:function:SNS-X-Account"
+      }
+   },
+   "Action":[  
+      "lambda:InvokeFunction"
+   ],
+   "Resource":"arn:aws:lambda:us-east-1:A:function:SNS-X-Account",
+   "Effect":"Allow",
+   "Principal":{  
+      "Service":"sns.amazonaws.com"
+   },
+   "Sid":"sns-x-account1"
+}
+```
