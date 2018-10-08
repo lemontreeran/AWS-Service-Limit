@@ -2,7 +2,7 @@
     "LambdaFunctionConfigurations": [
         {
           "Id": "1234567890",
-          "LambdaFunctionArn": "arn:aws:lambda:us-west-2:LAMBDA_OWNER_ACCOUNT_ID:function:DocumentProcessor",
+          "LambdaFunctionArn": "arn:aws:lambda:us-west-2:LAMBDA_OWNER_ACCOUNT_ID:function:CloudtrailMonitor",
           "Events": ["s3:ObjectCreated:*"]
         }
       ]
