@@ -1,9 +1,0 @@
-{
-    "LambdaFunctionConfigurations": [
-        {
-          "Id": "1234567890",
-          "LambdaFunctionArn": "arn:aws:lambda:us-west-2:YOUR_ACCOUNT_ID:function:DocumentProcessor",
-          "Events": ["s3:ObjectCreated:*"]
-        }
-      ]
-}
