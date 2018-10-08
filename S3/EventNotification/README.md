@@ -1,4 +1,4 @@
-Add Permissions to the Lambda Function’s Access Permissions Policy
+## Add Permissions to the Lambda Function’s Access Permissions Policy
 
 $ aws lambda add-permission \
 --function-name CreateThumbnail \
@@ -10,6 +10,7 @@ $ aws lambda add-permission \
 --source-account bucket-owner-account-id \
 --profile adminuser
 
+```
 {  
    "Statement":{  
       "Sid":"allow-s3-to-invoke-lambda123456789",
@@ -31,4 +32,4 @@ $ aws lambda add-permission \
       }
    }
 }
-
+```
