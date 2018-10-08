@@ -1,4 +1,5 @@
 Add Permissions to the Lambda Function’s Access Permissions Policy
+
 aws lambda add-permission \
 --function-name DocumentProcessor \
 --region us-west-2 \
