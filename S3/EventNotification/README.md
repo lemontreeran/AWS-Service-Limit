@@ -50,6 +50,6 @@ aws sns add-permission \
 
 ## Add Permissions to the LAMBDA Permission Policy
 $ aws iam put-role-policy \
---role-name Test-Role \ 
+--role-name Test-Role \
 --policy-name ExamplePolicy \
 --policy-document file://config/policies/s3-lambda-notification-rolepolicy.json
