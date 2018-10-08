@@ -20,7 +20,7 @@ $ aws lambda add-permission \
 {  
    "Statement":{  
       "Sid":"allow-s3-to-invoke-lambda123456789",
-      "Resource":"arn:aws:lambda:us-west-2:LAMBDA_OWNER_ACCOUNT_ID:function:CloudtrailMonitor",
+      "Resource":"arn:aws:lambda:ap-southeast-2:LAMBDA_OWNER_ACCOUNT_ID:function:CloudtrailMonitor",
       "Effect":"Allow",
       "Principal":{  
          "Service":"s3.amazonaws.com"
@@ -51,13 +51,13 @@ aws sns add-permission \
 "Statement":{  
    "Condition":{  
       "ArnLike":{  
-         "AWS:SourceArn":"arn:aws:lambda:us-east-1:B:function:SNS-X-Account"
+         "AWS:SourceArn":"arn:aws:lambda:ap-southeast-2:LAMBDA_OWNER_ACCOUNT_ID:function:CloudtrailMonitor"
       }
    },
    "Action":[  
       "lambda:InvokeFunction"
    ],
-   "Resource":"arn:aws:lambda:us-east-1:A:function:SNS-X-Account",
+   "Resource":"arn:aws:lambda:ap-southeast-2:SNS_OWNER_ACCOUNT_ID:function:SNS-X-Account",
    "Effect":"Allow",
    "Principal":{  
       "Service":"sns.amazonaws.com"
