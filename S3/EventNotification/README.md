@@ -20,7 +20,7 @@ $ aws lambda add-permission \
 {  
    "Statement":{  
       "Sid":"allow-s3-to-invoke-lambda123456789",
-      "Resource":"arn:aws:lambda:us-west-2:YOUR_ACCOUNT_ID:function:CloudtrailMonitor",
+      "Resource":"arn:aws:lambda:us-west-2:LAMBDA_OWNER_ACCOUNT_ID:function:CloudtrailMonitor",
       "Effect":"Allow",
       "Principal":{  
          "Service":"s3.amazonaws.com"
