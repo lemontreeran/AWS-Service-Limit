@@ -65,3 +65,10 @@ aws sns add-permission \
    "Sid":"sns-x-account1"
 }
 ```
+
+aws lambda add-permission \
+    --function-name SNS-X-Account \
+    --statement-id sns-x-account \
+    --action "lambda:InvokeFunction" \
+    --principal sns.amazonaws.com \
+    --source-arn Amazon SNS topic arn 
