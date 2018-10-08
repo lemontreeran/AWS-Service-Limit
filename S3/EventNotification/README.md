@@ -57,7 +57,7 @@ aws sns add-permission \
    "Action":[  
       "lambda:InvokeFunction"
    ],
-   "Resource":"arn:aws:lambda:ap-southeast-2:SNS_OWNER_ACCOUNT_ID:function:SNS-X-Account",
+   "Resource":"arn:aws:lambda:ap-southeast-2:SNS_OWNER_ACCOUNT_ID:function:CloudtrailMonitor",
    "Effect":"Allow",
    "Principal":{  
       "Service":"sns.amazonaws.com"
@@ -66,9 +66,27 @@ aws sns add-permission \
 }
 ```
 
+## Add Permissions to the LAMBDA Permission Policy
 aws lambda add-permission \
-    --function-name SNS-X-Account \
-    --statement-id sns-x-account \
+    --function-name CloudtrailMonitor \
+    --statement-id CloudtrailMonitor \
     --action "lambda:InvokeFunction" \
     --principal sns.amazonaws.com \
     --source-arn Amazon SNS topic arn 
+    
+ ```   
+ {
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "sns:Publish"
+            ],
+            "Resource": [
+                "arn:aws:sns:ap-southeast-2:SNSTOPIC_OWNER_ACCOUNT_ID:*"
+            ]
+        }
+    ]
+ }
+```
