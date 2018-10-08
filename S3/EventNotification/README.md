@@ -30,7 +30,7 @@ $ aws lambda add-permission \
       ],
       "Condition":{  
          "StringEquals":{  
-            "AWS:SourceAccount":"YOUR_ACCOUNT_ID"
+            "AWS:SourceAccount":"S3_OWNER_ACCOUNT_ID"
          },
          "ArnLike":{  
             "AWS:SourceArn":"arn:aws:s3:::CloudtrailMonitor"
